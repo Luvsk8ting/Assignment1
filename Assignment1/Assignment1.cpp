@@ -1,7 +1,7 @@
 // Assignment1.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h";
+#include "stdafx.h"
 #include <iostream>
 using namespace std;
 
@@ -23,7 +23,7 @@ int main()
 	double cAmt = 0;
 	double cSTotal = 0;
 	double cTotal = 0;
-	char ans = ('N','Y');
+	char ans = ('N','Y'); 
 
 	cout << " Please enter Beginning Balance " << endl;
 	cin >> beginBal;
@@ -31,53 +31,65 @@ int main()
 	cin >> trans;
 	if (trans != ' ') {
 		if (trans == 'W' || trans == 'w') {
-			do {
-				cout << "Please enter withdrawal amount " << endl;
-				cin >> wAmt;
-				wTotal = wSTotal + wAmt;
-				wSTotal = wAmt;
-				cout << "Would you like to enter another withdrawl (Y/N) " << endl;
-				cin >> ans;
-				endingBalance = beginBal - wTotal;
-				cout << endingBalance << endl;
-			} while (ans == 'Y' || ans == 'y')
+			double wTable[100];
+			for (int i = 0; i <= 100; i++)
+			{
+				do {
+					cout << "Please enter withdrawal amount " << endl;
+					cin >> wAmt;
+					wTable[i] = wAmt;
+					wTotal = wSTotal + wTable[i];
+					wSTotal = wTable[i];
+					cout << "Would you like to enter another withdrawl (Y/N) " << endl;
+					cin >> ans;
+					//endingBalance = beginBal - wTotal;
+				} while (ans == 'Y' || ans == 'y');
 				cout << "Total withdrawals are: " << wTotal << endl;
+				//double wData[100];
+				//int numElements = 0;
+				for (int i = 0; i < wTable[i]; i++) {
+					cout << "Trans: " << i << "is" << wTable[i] << endl;
+				}
+				
+			}
 		}
 		else if (trans == 'D' || trans == 'd') {
-			do {
-				cout << "Please enter deposit amount" << endl;
-				cin >> dAmt;
-				dTotal = wSTotal + wAmt;
-				dSTotal = dAmt;
-				cout << "Would you like to enter another deposit (Y/N) ";
-				cin >> ans;
-				endingBalance = beginBal + dTotal;
-				cout << endingBalance << endl;
-			} while (ans == 'Y' || ans == 'y');
-					cout << "Total deposits are: " << dTotal << endl;
-				//cout << " Ending Balance is " << endingBalance << endl;
+			double dTable[100];
+			for (int i = 0; i <= 100; i++)
+			{
+				do {
+					cout << "Please enter deposit amount " << endl;
+					cin >> dAmt;
+					dTable[i] = dAmt;
+					dTotal = dSTotal + dTable[i];
+					dSTotal = dTable[i];
+					cout << "Would you like to enter another deposit (Y/N) " << endl;
+					cin >> ans;
+					endingBalance = beginBal + dTotal;
+				} while (ans == 'Y' || ans == 'y');
+				cout << "Total deposits are: " << dTotal << endl;
 			}
+		}
 		else if (trans == 'C' || trans == 'c') {
-			do {
-				cout << "Please enter check amount" << endl;
-				cin >> cAmt;
-				cTotal = cSTotal + cAmt;
-				cSTotal = cAmt;
-				cout << "Would you like to enter another check (Y/N) ";
-				cin >> ans;
-				endingBalance = beginBal - cTotal;
-				cout << endingBalance << endl;
-			} while (ans == 'Y' || ans == 'y');
-				cout << "Total checks are: " << cTotal << endl;
-				//cout << " Ending Balance is " << endingBalance << endl;
+			double cTable[100];
+			for (int i = 0; i <= 100; i++)
+			{
+				do {
+					cout << "Please enter check amount " << endl;
+					cin >> cAmt;
+					cTable[i] = cAmt;
+					wTotal = cSTotal + cTable[i];
+					wSTotal = cTable[i];
+					cout << "Would you like to enter another check (Y/N) " << endl;
+					cin >> ans;
+					endingBalance = beginBal - cTotal;
+				} while (ans == 'Y' || ans == 'y');
+				cout << "Total checks are: " << wTotal << endl;
 			}
-			
 		}
 		else
 			cout << "Please enter valid transaction type" << endl;
-}
-			cout << " Please enter a transaction type (W, C, D) " << endl;
-			return 0;
-		
+		cout << "Please enter a transaction type (W, C, D) " << endl;
+		return 0;
+		}
 	}
-	
