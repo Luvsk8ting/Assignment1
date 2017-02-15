@@ -32,18 +32,20 @@ int main()
 	if (trans != ' ') {
 		if (trans == 'W' || trans == 'w') {
 			double wTable[100];
-			for (int i = 0; i <= 100; i++)
-			{
 				do {
 					cout << "Please enter withdrawal amount " << endl;
-					cin >> wAmt;
-					wTable[i] = wAmt;
-					cout << wTable[i] << endl;
-					//wTotal = wTable[i];
-					//cout << wTotal << endl;
-					//wSTotal = wTable[i];
-					cout << "Would you like to enter another withdrawl (Y/N) " << endl;
-					cin >> ans;
+					
+					for (int i = 0; i <= 100; i++)
+					{
+						cin >> wAmt;
+						wTable[i] = wAmt;
+						//cout << wTable[i] << endl;
+						wTotal = +wTable[i];
+						//cout << wTotal << endl;
+						//wSTotal = wTable[i];
+						cout << "Would you like to enter another withdrawl (Y/N) " << endl;
+						cin >> ans;
+					}
 				} while (ans == 'Y' || ans == 'y');
 				cout << "Total withdrawals are: " << wTotal << endl;
 				for (int i = 0; i < wTable[i]; i++) {
@@ -91,4 +93,4 @@ int main()
 		cout << "Please enter a transaction type (W, C, D) " << endl;
 		return 0;
 		}
-	}
+	
