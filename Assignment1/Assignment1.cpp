@@ -35,20 +35,18 @@ int main()
 			for (int i = 0; i <= 100; i++)
 			{
 				do {
+					
 					cout << "Please enter withdrawal amount " << endl;
 					cin >> wAmt;
 					wTable[i] = wAmt;
-					wTotal = wSTotal + wTable[i];
-					wSTotal = wTable[i];
+					wTotal = +wTable[i];
+					//wSTotal = wTable[i];
 					cout << "Would you like to enter another withdrawl (Y/N) " << endl;
 					cin >> ans;
-					//endingBalance = beginBal - wTotal;
 				} while (ans == 'Y' || ans == 'y');
 				cout << "Total withdrawals are: " << wTotal << endl;
-				//double wData[100];
-				//int numElements = 0;
 				for (int i = 0; i < wTable[i]; i++) {
-					cout << "Trans: " << i << "is" << wTable[i] << endl;
+					cout << "You enters these withdrawal transactions: " << wTable[i] << endl;
 				}
 				
 			}
